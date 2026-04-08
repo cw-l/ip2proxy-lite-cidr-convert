@@ -6,7 +6,7 @@ INSTALL_PATH = $(BINDIR)/$(BINARY)
 
 VERSION ?= $(shell git describe --tags --always --dirty 2>/dev/null || echo "dev")
 SRC_PATH = ./cmd/ip2proxyliteconvert
-GEN_PATH  = ./cmd/gen-exceptions
+GEN_PATH  = ./cmd/gen-test-data
 
 Q = $(if $(V),,@)
 
