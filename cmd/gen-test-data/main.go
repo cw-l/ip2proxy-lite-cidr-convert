@@ -1,15 +1,13 @@
 package main
 
 import (
-	"bufio"
-	"fmt"
-	"math/rand"
-	"os"
-	"path/filepath"
-	"strings"
-	"time"
+	"log"
+	"github.com/cw-l/ip2proxy-lite-cidr-convert"
 )
 
 func main() {
-	GenerateExceptionData("./testdata/samples")
+	err := converter.GenerateExceptionData("./testdata/samples")
+	if err != nil {
+		log.Fatal(err)
+	}
 }
