@@ -1,0 +1,13 @@
+# Binaries
+ip2proxyliteconvert
+
+# Data files (Don't push these to the repo!)
+*.csv
+*.mmdb
+*.zip
+
+# OS Packages
+*.deb
+
+# Test samples directory
+testdata/samples/

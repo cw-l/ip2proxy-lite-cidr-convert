@@ -1,0 +1,52 @@
+version: 2
+project_name: ip2proxyliteconvert
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - main: ./cmd/ip2proxyliteconvert
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    binary: ip2proxyliteconvert
+    ldflags:
+      - -s -w -X main.version={{.Version}}
+
+nfpms:
+  - file_name_template: "{{ .ProjectName }}_{{ .Version }}_linux_{{ .Arch }}"
+    formats:
+      - deb
+    section: utils
+    priority: optional
+    maintainer: "Lee Cheng Wei <saya@rainma.ker.life>"
+    description: "Universal IP2Proxy LITE IPv4 CIDR converter"
+    license: "AGPL-3.0-only"
+    contents:
+      - src: ip2proxyliteconvert
+        dst: /usr/bin/ip2proxyliteconvert
+        file_info:
+          mode: 0755
+
+archives:
+  - format: tar.gz
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+
+checksum:
+  name_template: "checksums.txt"
+
+snapshot:
+  name_template: "{{ incpatch .Version }}-next"
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
