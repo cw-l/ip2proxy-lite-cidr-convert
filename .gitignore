@@ -1,5 +1,5 @@
 # Binaries
-ip2proxyliteconvert
+/ip2proxyliteconvert
 
 # Data files (Don't push these to the repo!)
 *.csv
