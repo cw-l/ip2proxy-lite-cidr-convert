@@ -28,11 +28,7 @@ nfpms:
     maintainer: "Lee Cheng Wei <saya@rainma.ker.life>"
     description: "Universal IP2Proxy LITE IPv4 CIDR converter"
     license: "AGPL-3.0-only"
-    contents:
-      - src: ip2proxyliteconvert
-        dst: /usr/bin/ip2proxyliteconvert
-        file_info:
-          mode: 0755
+    bindir: /usr/bin
 
 archives:
   - format: tar.gz
